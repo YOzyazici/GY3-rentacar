@@ -11,6 +11,6 @@ public class ProblemDetails {
     //rfce standarts
     private String title;
     private String detail;
-    private String Status;
-    private String Type;
+    private String status;
+    private String type;
 }
