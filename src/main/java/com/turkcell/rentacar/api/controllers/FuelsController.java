@@ -1,6 +1,8 @@
 package com.turkcell.rentacar.api.controllers;
 
 import com.turkcell.rentacar.business.abstracts.FuelService;
+import com.turkcell.rentacar.business.dtos.requests.CreateFuelRequest;
+import com.turkcell.rentacar.business.dtos.responses.CreatedFuelResponse;
 import com.turkcell.rentacar.entities.concretes.Fuel;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,26 +19,26 @@ public class FuelsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Fuel add(@RequestBody Fuel fuel){
-        return fuelService.add(fuel);
+    public CreatedFuelResponse add(@RequestBody CreateFuelRequest createFuelRequest){
+        return fuelService.add(createFuelRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Fuel> getAll(){
+    public List<CreatedFuelResponse> getAll(){
         return fuelService.getAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Fuel getById(@PathVariable int id){
+    public CreatedFuelResponse getById(@PathVariable int id){
         return fuelService.getById(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Fuel update(@PathVariable int id, @RequestBody Fuel fuel) {
-        return fuelService.update(id, fuel);
+    public CreatedFuelResponse update(@PathVariable int id, @RequestBody CreateFuelRequest createFuelRequest) {
+        return fuelService.update(id, createFuelRequest);
     }
 
     @DeleteMapping("/{id}")

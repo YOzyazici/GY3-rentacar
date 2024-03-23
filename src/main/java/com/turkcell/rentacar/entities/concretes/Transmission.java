@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
+@Data
 @Table(name = "transmissions")
 public class Transmission extends BaseEntity {
     @Column(name="name")

@@ -1,6 +1,8 @@
 package com.turkcell.rentacar.api.controllers;
 
 import com.turkcell.rentacar.business.abstracts.TransmissionService;
+import com.turkcell.rentacar.business.dtos.requests.CreateTransmissionRequest;
+import com.turkcell.rentacar.business.dtos.responses.CreatedTransmissionResponse;
 import com.turkcell.rentacar.entities.concretes.Transmission;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,26 +19,26 @@ public class TransmissionsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Transmission add(@RequestBody Transmission transmission) {
-        return transmissionService.add(transmission);
+    public CreatedTransmissionResponse add(@RequestBody CreateTransmissionRequest createTransmissionRequest) {
+        return transmissionService.add(createTransmissionRequest);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Transmission> getAll() {
+    public List<CreatedTransmissionResponse> getAll() {
         return transmissionService.getAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Transmission getById(@PathVariable int id) {
+    public CreatedTransmissionResponse getById(@PathVariable int id) {
         return transmissionService.getById(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Transmission update(@PathVariable int id, @RequestBody Transmission transmission) {
-        return transmissionService.update(id, transmission);
+    public CreatedTransmissionResponse update(@PathVariable int id, @RequestBody CreateTransmissionRequest createTransmissionRequest) {
+        return transmissionService.update(id, createTransmissionRequest);
     }
 
     @DeleteMapping("/{id}")
